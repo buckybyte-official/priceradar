@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>PriceRadar - Find Best Deals Fast</title>
+        <link rel="stylesheet" href="style.css" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <style>
+            body {
+                font-family: "Poppins", sans-serif;
+            }
+            .hero {
+                background: url("img/banner.jpg");
+                background-size: cover;
+                background-position: center;
+                color: white;
+                text-align: center;
+                padding: 100px 20px;
+            }
+            .card:hover {
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+                transition: 0.3s;
+            }
+            .lock-icon::after {
+                content: "\1F512"; /* lock emoji */
+                margin-left: 5px;
+            }
+
+            .feature {
+                background: url("img/find.jpg");
+                background-size: cover;
+                background-position: center;
+                color: white;
+                text-align: center;
+                width: cover;
+                height: 200px;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1 class="display-4">Find the Best Deals in a Flash</h1>
+                <p class="lead">
+                    Track prices like a pro and stay ahead of the game. Ideal
+                    for smart shoppers and savvy sellers.
+                </p>
+                <a href="#compare" class="btn btn-light btn-lg"
+                    >Start Tracking Now</a
+                >
+            </div>
+        </section>
+
+        <!-- Problem/Solution Cards -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-4 mb-4">
+                        <img
+                            src="img/card1.jpg"
+                            class="img-fluid mb-3"
+                            alt="Problem 1"
+                        />
+                        <div class="card p-4">
+                            <h4>Manual Tracking Wastes Time</h4>
+                            <p>
+                                PriceRadar automates the process. Get real-time
+                                updates easily!
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <img
+                            src="img/card2.jpg"
+                            class="img-fluid mb-3"
+                            alt="Problem 2"
+                        />
+                        <div class="card p-4">
+                            <h4>Stay Ahead of Competitors</h4>
+                            <p>
+                                Monitor price changes with ease and always be
+                                one step ahead.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <img
+                            src="img/card3.jpg"
+                            class="img-fluid mb-3"
+                            alt="Problem 3"
+                        />
+                        <div class="card p-4">
+                            <h4>Snag Best Deals Instantly</h4>
+                            <p>
+                                AI-driven suggestions help you save time and
+                                money effortlessly!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="feature">
+            <section class="py-5 text-center">
+                <div class="container">
+                    <h2>Effortlessly Find Unbeatable Deals</h2>
+                    <p class="mb-4">
+                        Real-time insights and market monitoring at your
+                        fingertips.
+                    </p>
+                    <a href="#compare" class="btn btn-primary">View Deals</a>
+                </div>
+            </section>
+        </section>
+
+        <!-- Price Comparison Page (Integrated and Cleaned) -->
+        <section id="compare" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-4">Compare Prices</h2>
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <form id="compareForm">
+                            <div class="mb-3">
+                                <label class="form-label"
+                                    >Choose Gadget Type</label
+                                >
+                                <select
+                                    id="gadgetTypeSelect"
+                                    class="form-select"
+                                    required
+                                >
+                                    <option value="Phone">Phone</option>
+                                    <option value="Laptop" disabled>
+                                        🔒Laptop
+                                    </option>
+                                    <option value="Tablet" disabled>
+                                        🔒Tablet
+                                    </option>
+                                    <option value="Tablet" disabled>
+                                        🔒Smartwatch
+                                    </option>
+                                    <option value="Tablet" disabled>
+                                        🔒TV
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="brandSelect" class="form-label"
+                                    >Select Brand</label
+                                >
+                                <select
+                                    id="brandSelect"
+                                    class="form-select"
+                                    required
+                                >
+                                    <option value="">Choose...</option>
+                                    <option value="Samsung">Samsung</option>
+                                    <option value="Apple">Apple</option>
+                                    <option disabled>🔒Vivo</option>
+                                    <option disabled>🔒Xiaomi</option>
+                                    <option disabled>🔒Honor</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="modelSelect" class="form-label"
+                                    >Select Model</label
+                                >
+                                <select
+                                    id="modelSelect"
+                                    class="form-select"
+                                    required
+                                >
+                                    <!-- Models will load dynamically -->
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn btn-success">
+                                Compare
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <section id="resultSection" class="d-none mt-5">
+                    <h3 class="text-center mb-4">Available Deals</h3>
+                    <div class="row" id="resultCards">
+                        <!-- Cards will be generated dynamically here -->
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <!-- Pricing Plans -->
+        <section id="pricing" class="py-5 bg-light">
+            <div class="container text-center">
+                <h2 class="mb-4">Pick Your Perfect Plan</h2>
+                <div class="row">
+                    <!-- Free Plan -->
+                    <div class="col-md-4">
+                        <div class="card p-4 mb-4">
+                            <h4>Free Plan</h4>
+                            <h5 class="my-3">$0 /month</h5>
+                            <p>
+                                Perfect for casual users or those just starting.
+                                Limited access with essential features.
+                            </p>
+                            <ul class="list-unstyled">
+                                <li>✅ 3 Search Chances per Day</li>
+                                <li>✅ Basic Search Filters (Phones Only)</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary">Get Started</a>
+                        </div>
+                    </div>
+
+                    <!-- Pro Plan -->
+                    <div class="col-md-4">
+                        <div class="card p-4 mb-4">
+                            <h4>Pro Plan</h4>
+                            <h5 class="my-3">$19 /month</h5>
+                            <p>
+                                Get more out of your experience with additional
+                                search chances and a wider variety of gadgets.
+                            </p>
+                            <ul class="list-unstyled">
+                                <li>✅ Extended Search Chances</li>
+                                <li>
+                                    ✅ Advanced Search Filters (Phones, Laptops,
+                                    Tablets, Smartwatches, and TVs)
+                                </li>
+                                <li>✅ Access to Exclusive Deals</li>
+                            </ul>
+                            <a href="#" class="btn btn-success">Upgrade Now</a>
+                        </div>
+                    </div>
+
+                    <!-- Business Plan -->
+                    <div class="col-md-4">
+                        <div class="card p-4 mb-4">
+                            <h4>Business Plan</h4>
+                            <h5 class="my-3">$49 /month</h5>
+                            <p>
+                                For organizations and businesses with the need
+                                for team collaboration and specialized devices.
+                            </p>
+                            <ul class="list-unstyled">
+                                <li>✅ Up to 20 User Accounts</li>
+                                <li>
+                                    ✅ View Business Gadgets:(TVs, Printers, AC,
+                                    Vending Machines
+                                </li>
+                                <li>✅ Unlimited Search Chances</li>
+                                <li>✅ 24/7 Premium Customer Support</li>
+                                <li>
+                                    ✅ Special Device Additions (Printers, ACs,
+                                    Vending Machines, etc.)
+                                </li>
+                            </ul>
+                            <a href="#" class="btn btn-dark">Join Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-4">Have Questions?</h2>
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <form>
+                            <div class="mb-3">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Your Name"
+                                />
+                            </div>
+                            <div class="mb-3">
+                                <input
+                                    type="email"
+                                    class="form-control"
+                                    placeholder="Your Email"
+                                />
+                            </div>
+                            <div class="mb-3">
+                                <textarea
+                                    class="form-control"
+                                    placeholder="Your Message"
+                                    rows="4"
+                                ></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            const brandSelect = document.getElementById("brandSelect");
+            const modelSelect = document.getElementById("modelSelect");
+            const form = document.getElementById("compareForm");
+            const resultSection = document.getElementById("resultSection");
+            const resultCards = document.getElementById("resultCards");
+
+            const models = {
+                Samsung: ["Galaxy S23", "Galaxy Z Flip 5"],
+                Apple: ["iPhone 15", "iPhone 15 Pro"],
+            };
+
+            const prices = {
+                OLX: 850,
+                Uzum: 870,
+                MediaPark: 899,
+            };
+
+            const platforms = [
+                { name: "OLX", link: "#", price: prices["OLX"] },
+                { name: "Uzum", link: "#", price: prices["Uzum"] },
+                { name: "MediaPark", link: "#", price: prices["MediaPark"] },
+            ];
+
+            brandSelect.addEventListener("change", () => {
+                const selectedBrand = brandSelect.value;
+                modelSelect.innerHTML = "";
+                if (models[selectedBrand]) {
+                    models[selectedBrand].forEach((model) => {
+                        const option = document.createElement("option");
+                        option.textContent = model;
+                        modelSelect.appendChild(option);
+                    });
+                }
+            });
+
+            form.addEventListener("submit", (e) => {
+                e.preventDefault();
+                const selectedBrand = brandSelect.value;
+                const selectedModel = modelSelect.value;
+
+                resultSection.classList.remove("d-none");
+                resultCards.innerHTML = "";
+
+                // Find the platform with lowest price
+                let lowestPrice = Math.min(...platforms.map((p) => p.price));
+
+                platforms.forEach((platform) => {
+                    let isLowest = platform.price === lowestPrice;
+                    resultCards.innerHTML += `
+                        <div class="col-md-4 mb-4">
+                            <div class="card ${isLowest ? "border-success" : ""}">
+                                <img src="img/${selectedBrand.toLowerCase()}.jpg" class="card-img-top" alt="${selectedModel}">
+                                <div class="card-body">
+                                    <h5 class="card-title">${selectedModel}</h5>
+                                    <p class="card-text">${platform.name} - <strong>$${platform.price}</strong></p>
+                                    <a href="${platform.link}" class="btn btn-primary">View on ${platform.name}</a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+            });
+        </script>
+    </body>
+</html>
